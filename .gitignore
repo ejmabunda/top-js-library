@@ -1,0 +1,3 @@
+# Ignore temporary SASS files
+.sass-cache
+*.css.map
