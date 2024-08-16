@@ -59,6 +59,16 @@ function displayBooks() {
             div.appendChild(elem);
         }
 
+        // Add a 'remove' button for each book element
+        let rm = document.createElement("button");
+        rm.textContent = "Remove";
+        rm.dataset.index = i;
+        rm.addEventListener("click", (e) => {
+            library.splice(e.target.dataset.index, 1);
+            displayBooks();
+        });
+        div.appendChild(rm);
+
         document.querySelector(".books").append(div);
     }
 }
