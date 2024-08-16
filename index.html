@@ -10,24 +10,57 @@
     
     <!-- Fonts -->
 
+    <!-- Favicon -->
+
     <title>Library</title>
 </head>
 <body>
+    <!-- Header section -->
     <header>
         <h1>Library</h1>
     </header>
 
+    <!-- Main section -->
     <main>
         <h2>My books</h2>
         <button id="add-btn">Add book</button>
+        <dialog>
+            <form method="dialog">
+                <h3>Add book</h3>
+
+                <label for="title">
+                    <p>Title:</p>
+                    <input type="text" name="title" id="title">
+                </label>
+                
+                <label for="author">
+                    <p>Author:</p>
+                    <input type="text" name="author" id="author">
+                </label>
+
+                <label for="pages">
+                    <p>Pages:</p>
+                    <input type="number" name="pages" id="pages" min="0">
+                </label>
+
+                <label for="read">
+                    <p>Read:</p>
+                    <input type="checkbox" name="read" id="read">
+                </label>
+
+                <input type="submit" name="submit" id="submit" formmethod="dialog">
+            </form>
+        </dialog>
 
         <div class="books"></div>
     </main>
 
+    <!-- Footer section -->
     <footer>
         <p>Created by <a href="https://github.com/ejmabunda/">Junior Mabunda</a> for <a href="https://theodinproject.com/">The Odin Project</a></p>
     </footer>
 
+    <!-- Scripts -->
     <script src="js/books.js"></script>
 </body>
 </html>
