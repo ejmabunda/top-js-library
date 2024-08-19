@@ -7,6 +7,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="css/books.css">
+    <link rel="stylesheet" href="css/modern-normalize.css">
     
     <!-- Fonts -->
 
@@ -22,8 +23,12 @@
 
     <!-- Main section -->
     <main>
-        <h2>My books</h2>
-        <button id="add-btn">Add book</button>
+        <div class="header">
+            <h2>My books</h2>
+            <button id="add-btn">Add book</button>
+        </div>
+
+        <!-- Form dialog -->
         <dialog>
             <form method="dialog">
                 <h3>Add book</h3>
@@ -43,12 +48,15 @@
                     <input type="number" name="pages" id="pages" min="0">
                 </label>
 
-                <label for="read">
-                    <p>Read:</p>
+                <label for="read" id="read-label">
+                    <p>Have you read it?</p>
                     <input type="checkbox" name="read" id="read">
                 </label>
 
-                <input type="submit" name="submit" id="submit" formmethod="dialog">
+                <div>
+                    <button value="cancel" formmethod="dialog">Cancel</button>
+                    <button id="confirm" value="default">Confirm</button>
+                </div>
             </form>
         </dialog>
 
@@ -57,7 +65,7 @@
 
     <!-- Footer section -->
     <footer>
-        <p>Created by <a href="https://github.com/ejmabunda/">Junior Mabunda</a> for <a href="https://theodinproject.com/">The Odin Project</a></p>
+        <p>Created by <a href="https://github.com/ejmabunda/" target="_blank">Junior Mabunda</a> for <a href="https://theodinproject.com/" target="_blank">The Odin Project</a></p>
     </footer>
 
     <!-- Scripts -->

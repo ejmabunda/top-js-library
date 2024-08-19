@@ -1,12 +1,6 @@
 // Stores book objects
 let library = [];
 
-// Dummy books for testing
-for (let i = 0; i < 2; i++) {
-    let book = new Book(`Title ${i}`, `Author ${i}`, `${i}00 pages`, false);
-    library.push(book);
-}
-
 function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
@@ -20,8 +14,10 @@ Book.prototype.updateRead = function() {
 
 let dialog = document.querySelector("dialog");
 dialog.addEventListener("close", () => {
-    AddBookToLibrary();
-    displayBooks();
+    if (dialog.returnValue === "default") {
+        AddBookToLibrary();
+        displayBooks();
+    }
 });
 
 function AddBookToLibrary() {
@@ -55,9 +51,10 @@ function displayBooks() {
 
         // Create elements for each book property
         // and add to book element to be displayed.
-        for (const value of Object.values(library[i])) {
+        for (let j = 0; j < 2; j++) {
             let elem = document.createElement("p");
-            elem.textContent = value;
+            elem.classList.add(Object.keys(library[i])[j]);
+            elem.textContent = Object.values(library[i])[j];
 
             div.appendChild(elem);
         }
@@ -65,6 +62,7 @@ function displayBooks() {
         // Add a 'remove' button for each book element
         let rm = document.createElement("button");
         rm.textContent = "Remove";
+        rm.classList.add("remove");
         rm.dataset.index = i;
         rm.addEventListener("click", (e) => {
             library.splice(e.target.dataset.index, 1);
@@ -76,6 +74,7 @@ function displayBooks() {
         let readBtn = document.createElement("button");
         readBtn.textContent = library[i].read === true ? "Read": "Not read";
         readBtn.dataset.index = i;
+        readBtn.classList.add("read")
         readBtn.addEventListener("click", (e) => {
             library[i].updateRead();
             e.target.textContent = library[i].read === true ? "Read": "Not read";

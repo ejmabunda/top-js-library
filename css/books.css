@@ -1,4 +1,91 @@
-.book {
-  background-color: coral; }
+header, main, footer {
+  padding: 0 max(2rem, calc(100vw - 1200px)); }
+
+header {
+  padding-top: 1rem;
+  padding-bottom: 1rem; }
+  header h1 {
+    margin: 0; }
+
+main {
+  padding-bottom: 5rem; }
+  main div.header {
+    display: flex;
+    justify-content: space-between; }
+    main div.header button {
+      padding: .7rem;
+      align-self: center;
+      box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+      border: none;
+      border-radius: 5px;
+      background: white; }
+    main div.header button:hover {
+      cursor: pointer;
+      background-color: bisque; }
+  main dialog {
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+    border: none;
+    border-radius: 10px;
+    padding: 1rem; }
+    main dialog form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem; }
+      main dialog form h3 {
+        margin: 0; }
+      main dialog form p {
+        margin: 0 0 5px 0; }
+      main dialog form input {
+        padding: .4rem;
+        border-radius: 5px; }
+      main dialog form #read-label {
+        display: flex;
+        justify-content: space-between; }
+      main dialog form div {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: .5rem; }
+        main dialog form div button {
+          border-radius: 5px;
+          padding: .4rem; }
+        main dialog form div button:hover {
+          cursor: pointer; }
+  main .books {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem; }
+    main .books .book {
+      box-shadow: rgba(14, 63, 126, 0.06) 0px 0px 0px 1px, rgba(42, 51, 70, 0.03) 0px 1px 1px -0.5px, rgba(42, 51, 70, 0.04) 0px 2px 2px -1px, rgba(42, 51, 70, 0.04) 0px 3px 3px -1.5px, rgba(42, 51, 70, 0.03) 0px 5px 5px -2.5px, rgba(42, 51, 70, 0.03) 0px 10px 10px -5px, rgba(42, 51, 70, 0.03) 0px 24px 24px -8px;
+      padding: 1rem;
+      border-radius: 5px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas: "title title" "author author" "read read" "remove remove"; }
+      main .books .book .title {
+        font-weight: bold;
+        grid-area: title; }
+      main .books .book .author {
+        font-style: italic;
+        grid-area: author;
+        margin-bottom: 5rem; }
+      main .books .book .remove {
+        grid-area: remove;
+        background-color: red;
+        color: white;
+        padding: .5rem;
+        border-radius: 5px; }
+      main .books .book .read {
+        grid-area: read;
+        padding: .5rem;
+        border-radius: 5px;
+        margin-bottom: 1rem; }
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100vw; }
+  footer p {
+    text-align: center;
+    font-size: small; }
 
 /*# sourceMappingURL=books.css.map */
