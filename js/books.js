@@ -3,7 +3,7 @@ let library = [];
 
 // Dummy books for testing
 for (let i = 0; i < 2; i++) {
-    let book = new Book(`Title ${i}`, `Author ${i}`, `${i}00 pages`, "read");
+    let book = new Book(`Title ${i}`, `Author ${i}`, `${i}00 pages`, false);
     library.push(book);
 }
 
@@ -12,6 +12,10 @@ function Book(title, author, pages, read) {
     this.author = author;
     this.pages = pages;
     this.read = read;
+}
+
+Book.prototype.updateRead = function() {
+    this.read = !this.read;
 }
 
 let dialog = document.querySelector("dialog");
@@ -26,14 +30,13 @@ function AddBookToLibrary() {
         document.querySelector("#title").value,
         document.querySelector("#author").value,
         document.querySelector("#pages").value,
-        document.querySelector("#read").value,
+        document.querySelector("#read").checked,
     );
     library.push(new_book);
 }
 
 document.querySelector("#add-btn").addEventListener("click", () => {
     dialog.showModal();
-    
 });
 
 // Updates the display by rendering all `book`
@@ -68,6 +71,18 @@ function displayBooks() {
             displayBooks();
         });
         div.appendChild(rm);
+        
+        // Add a button to update 'read' status
+        let readBtn = document.createElement("button");
+        readBtn.textContent = library[i].read === true ? "Read": "Not read";
+        readBtn.dataset.index = i;
+        readBtn.addEventListener("click", (e) => {
+            library[i].updateRead();
+            e.target.textContent = library[i].read === true ? "Read": "Not read";
+                    
+            displayBooks();
+        });
+        div.appendChild(readBtn);
 
         document.querySelector(".books").append(div);
     }
